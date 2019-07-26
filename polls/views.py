@@ -2,6 +2,7 @@ from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from polls.models import Choice, Question
+# from .forms import NameForm
 
 def index(request):
     latest_question_list = Question.objects.all().order_by('-pub_date')[:5]
@@ -43,3 +44,16 @@ def results(request, question_id):
         'polls/results.html',
         {'question': question},
     )
+
+# def get_name(request):
+#     if request.method == 'POST':
+#         form = NameForm(request.POST)
+#
+#         if form.is_valid():
+#             new_name = form.cleaned_data['name']
+#             return  HttpResponseRedirect('/thanks/')
+#
+#     else:
+#         form = NameForm()
+#
+#     return render(request, 'name.html', {'form': form})
