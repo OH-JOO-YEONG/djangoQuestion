@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8">
-	<title>Title</title>
-</head>
-<body>
+{% extends "base_polls.html" %}
+{% block content %}
 	<h1>{{ question.question_text }}</h1>
 
 	{% if error_message %}
@@ -18,5 +13,4 @@
 		{% endfor %}
 		<input type="submit" value="Vote">
 	</form>
-</body>
-</html>
+{% endblock content %}
